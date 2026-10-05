@@ -1,162 +1,149 @@
 
-//import java.util.Scanner;
-public class Arrays1 {
+class Main {
+    public static void pattern(int n){
 
-
-  /*  public static boolean search(int matrix[][] ,int key){      // for finding an element in a 2 d array
-        for(int i=0;i<matrix.length;i++){
-            for(int j=0;j<matrix[0].length;j++){
-            if(matrix[i][j]==key){
-            System.out.println("key is found index("+i+","+j+")" );
-            return true;
-        }
-     }
-  }
-    
-        System.out.println("key not found");
-        return false;
-    
- }
-
-    public static void main(String[] args){
-
-    
-
-    int matrix[][]=new int [3][3];   //formation of array
-     int n=3;  int m=3;
-     try (Scanner SC = new Scanner(System.in)) {
-        for(int i=0;i<n;i++){
-            for(int j=0;j<m;j++){
-                matrix[i][j]=SC.nextInt();
-            }
-         }
-    } 
-      //output 
+    for(int i=1;i<=n;i++){
    
-     for(int i=0;i<n;i++){
-        for(int j=0;j<m;j++){
-            System.out.print(matrix[i][j] + " ");
+        for(int j=1;j<=i;j++){
+            System.out.print(j);
         }
-         System.out.println();
+
+        for(int k=(i-1);k>=1;k--){
+            System.out.print(k);
+        }
+        
+      System.out.println();
+}
+
+}
+
+
+    // {5,15,1,3};
+    public static void buysellstocks(int arr[] ){
+        int buyPrice=Integer.MAX_VALUE;
+        int maxProfit=0;
+        for(int i=0;i<arr.length;i++){
+            if(buyPrice>arr[i]){
+                buyPrice=arr[i];
+            }else{
+                int profit=arr[i]-buyPrice;
+                maxProfit=Math.max(profit,maxProfit);
+            }
+        }
+        System.out.print(maxProfit);
     }
-       search(matrix,9 );
-     
-    }*/
-
-    // sprial matrix
-
-    /*public static void spiral(int matrix[][]){
-        int startRow=0;
-        int startCol=0;
-        int endRow=matrix.length-1;        // yha pr row ke liye matrix.lenght lenge kyuki N-1 hoga
-        int endCol=matrix[0].length-1;      // yha pr col ke liye matrix[0].lenght lenge kyuki M-1 hoga
-
- 
-        while(startRow<=endRow && startCol<=endCol){
-            for(int j=startCol;j<=endCol;j++){                      //top  sc to EC , SC IS FIX
-                System.out.print(matrix[startRow][j]+" ");
-             }
-             for(int i=startRow+1;i<=endRow;i++){                    //right    SR+1 TO ER , EC IS FIX
-                System.out.print(matrix[i][endCol]+" ");
-             }
-             for(int j=endCol-1;j>=startCol;j--){                  //bottom      EC-1 TO EC, ER IS FIX
-                if(startRow==endRow){
-                    break;
-                }                
-                System.out.print(matrix[endRow][j]+" "); 
+    
+    public static void Printmax(int arr[]){
+        int Max=Integer.MIN_VALUE;
+        for(int i=0;i<arr.length;i++){
+            if(Max<arr[i]){
+                Max=arr[i];
             }
-            for(int i=endRow-1;i>=startRow+1;i--){                 //left        ER-1 TO SR+1 , SC IS FIX
-                if(startCol==endCol){
-                    break;
-                }                
-                System.out.print(matrix[i][startCol]+" ");
+        }
+        System.out.print(Max);
+        
+    }
+    public static void maxsum(int arr[]){
+        int ms=Integer.MIN_VALUE;
+        int cs=0;
+        for(int i=0;i<arr.length;i++){
+            cs=cs+arr[i];
+            if(cs<0){
+                cs=0;
             }
-            startRow++;
-            startCol++;
-            endRow--;
-            endCol--;
-
+            ms=Math.max(cs,ms);
+           
+        }
+        if(ms==0){
+            Printmax(arr);
+           
+        }else{
+         System.out.print(ms);
+        }
+    }
+    
+    public static void subarrays(int arr[] ){
+        for(int i=0;i<=arr.length-1;i++){
+        int start=i;
+        for(int j=i;j<=arr.length-1;j++){
+           int end=j;
+           
+        for(int k=start;k<=end;k++){
+            System.out.print(arr[k] );
+           
+          }
+          
+           System.out.print(",");
+       }
+       
+         System.out.println();
+      }
+    }
+    
+    public static void pairs(int arr[] ){
+    
+    for(int i=0;i<arr.length;i++){
+        int curr=arr[i];
+        for(int j=i+1;j<arr.length;j++){
+            System.out.print("(" + curr+ "," + arr[j] + ")");
         }
         System.out.println();
     }
-    
-    public static void main(String[] args){
-        int matrix[][]= {{1 ,2, 3, 4},
-                        { 5,6,7,8},
-                        {9,10,11,12},
-                        {13,14,15,16}};
-
-                        spiral(matrix);
-    }*/
-      
-    /*   public static int diagonal_sum(int matrix[][]){
-        int sum=0;
-        // primary sum
-        for(int i=0;i<matrix.length;i++){
-        sum +=matrix[i][i];                          //[i][i] for 
-         //for secondary diagonal
-        if(i != matrix.length-i-1)                   //[i][j]  now here i+j=n-1   . j=matix.lemgth-i-1,
-        sum +=matrix[i][matrix.length-i-1];
-    }
-    return sum;
-   
 }
-    public static void main(String[] args){
-        int matrix[][]= {{1 ,2, 3, 4},
-                        { 5,6,7,8},
-                        {9,10,11,12},
-                        {13,14,15,16}};
 
-                         System.out.println(diagonal_sum(matrix));
-                      //  diagonal_sum(matrix);
-                        
-   
-}*/
+public static Boolean Distinct(){
+    int arr[]={1,2,3,4};
+    
+    Boolean distinc=false;
+     for(int i=0;i<arr.length;i++){
+    
+      for (int j=(i+1);j<arr.length;j++){
 
-public static boolean stair_case(int matrix[][], int key){
-    int row=0;                                              //row start krenge 0 se 
-    int  col=matrix[0].length-1;                              // column start krenge matrix.length-1 se 
-    while(row < matrix.length && col>=0){                 // while loop chlega jb tk hmari row matrix.length tk nhi ho jati and col
-                                                         // jb tk chlega jb tk hmari col ki  value 0 tk nhi ho j 
-     if(matrix[row][col] == key){
-        System.out.println("key is found ( "+row+","+col+")");
-        return true;
+          if(arr[i]==arr[j]){
+            distinc=true;
+          }
+      }
      }
-     else if(key <matrix[row][col]){              //agr key ki value us cell ki value se km hoti he to left jayenge
-         col--;
-     }
-     else{                                      // agr key ki value us celll value se bdi hogi to niche jayega 
-        row++;
-     }
+      return distinc;
+}
 
-     }
-     System.out.println("not found");
-      return false;
+public static void Target(){
+    int arrr[]={4,5,6,7,0,1,2};
+    int Target=9;
+    int print=0;
+
+    for(int i=0;i<arrr.length;i++){
+        if(arrr[i]==Target){
+            System.out.print(i);
+            print=1;
+        }
+    }
+    if(print==0){
+        System.out.println("-1");
     }
 
-
-
-
-
- public static void main(String[] args){
-    int matrix[][]={{10,20,30,40},
-                    {15,25,35,45},
-                    {27,29,37,48},
-                    {32,33,39,50}};
-     int key=33;
-   
-     stair_case(matrix,key);
-    
- }
-
-
-
-
-
-
-
-
-
+}
+ 
+public static void main(String[] args) {
+    // int arr[]={5,15,1,3};
+    //  pairs(arr);
+    // subarrays(arr);
+    // maxsum(arr);
+    // pattern(5);
+    // buysellstocks(arr);
+    //    System.out.println(Distinct());
+      Target();
+    }
 }
 
 
+
+
+
+
+
+
+// 1
+// 121
+// 12321
+// 1234321
